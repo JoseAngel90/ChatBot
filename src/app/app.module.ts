@@ -1,18 +1,24 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { RecipeService } from './recipe.service';
+import { RouterModule } from '@angular/router'; 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot([]) 
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

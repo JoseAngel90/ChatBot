@@ -1,0 +1,92 @@
+/* Estilos generales del chatbot */
+.chatbot-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+/* Contenedor de los mensajes */
+.messages-container {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f3f3f3; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+}
+
+/* Mensajes del usuario */
+.user-message {
+  align-self: flex-end; 
+  max-width: 70%; 
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px;
+  margin: 5px 10px;
+  border-radius: 10px;
+  word-wrap: break-word; 
+}
+
+/* Mensajes del bot */
+.bot-message {
+  align-self: flex-start; 
+  max-width: 70%; 
+  background-color: #f8f9fa; 
+  color: #000; 
+  padding: 10px;
+  margin: 5px 10px;
+  border-radius: 10px;
+  word-wrap: break-word; 
+}
+
+/* Contenedor de la entrada de texto */
+.input-container {
+  display: flex;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+/* Campo de entrada de texto */
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+/* Botón de enviar */
+.input-container button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Estilo al pasar el ratón sobre el botón */
+.input-container button:hover {
+  background-color: #0056b3; 
+}
+
+/* Encabezado del chatbot */
+.chatbot-header {
+  padding-top: 10%;
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}

@@ -1,0 +1,21 @@
+<div class="chatbot-container">
+
+    <div class="chatbot-header">
+      RecetasOnline
+    </div>
+    
+
+    <div class="messages-container">
+   
+      <ng-container *ngFor="let message of messages">
+        <div *ngIf="message.isUser" class="user-message" [innerHTML]="message.text"></div>
+        <div *ngIf="!message.isUser" class="bot-message" [innerHTML]="message.text"></div>
+      </ng-container>
+    </div>
+ 
+    <div class="input-container">
+      <input type="text" placeholder="Escribe tu mensaje..." [(ngModel)]="userInput" (keyup.enter)="sendMessage()">
+      <button type="button" (click)="sendMessage()">Enviar</button>
+    </div>
+  </div>
+  
