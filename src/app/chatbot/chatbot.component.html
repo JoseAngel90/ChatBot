@@ -1,21 +1,33 @@
+<!-- chatbot.component.html -->
+<div class="video-background">
+  <video autoplay muted loop>
+    <source src="/imagenes/ComidaVideo.mp4" type="video/mp4">
+    Tu navegador no soporta el formato de video.
+  </video>
+</div>
+
+<!-- Elementos de audio para reproducir sonidos -->
+<audio id="user-sound" src="/imagenes/User.mp3"></audio>
+<audio id="bot-sound" src="/imagenes/bot.mp3"></audio>
+
 <div class="chatbot-container">
-
-    <div class="chatbot-header">
-      RecetasOnline
-    </div>
-    
-
-    <div class="messages-container">
-   
-      <ng-container *ngFor="let message of messages">
-        <div *ngIf="message.isUser" class="user-message" [innerHTML]="message.text"></div>
-        <div *ngIf="!message.isUser" class="bot-message" [innerHTML]="message.text"></div>
-      </ng-container>
-    </div>
- 
-    <div class="input-container">
-      <input type="text" placeholder="Escribe tu mensaje..." [(ngModel)]="userInput" (keyup.enter)="sendMessage()">
-      <button type="button" (click)="sendMessage()">Enviar</button>
-    </div>
+  <div class="chatbot-header">
+    RecetasOnline :D
   </div>
-  
+
+  <div class="messages-container">
+    <ng-container *ngFor="let message of messages">
+      <div *ngIf="message.isUser" class="message user-message">
+        <div class="message-content" [innerHTML]="message.text"></div>
+      </div>
+      <div *ngIf="!message.isUser" class="message bot-message">
+        <div class="message-content" [innerHTML]="message.text"></div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="input-container">
+    <input type="text" placeholder="Escribe tu mensaje..." [(ngModel)]="userInput" (keyup.enter)="sendMessage()">
+    <button type="button" (click)="sendMessage()">Enviar</button>
+  </div>
+</div>

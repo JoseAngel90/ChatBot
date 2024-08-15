@@ -1,48 +1,141 @@
+/* Estilo para el video de fondo */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1; /* Asegura que el video esté detrás del contenido del chatbot */
+  /* Estilo para crear el overlay oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.753); /* Ajusta el segundo valor para controlar el nivel de oscuridad (0.5 es 50%) */
+  z-index: 1;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0; /* Asegura que el video esté detrás del overlay */
+}
+
 /* Estilos generales del chatbot */
 .chatbot-container {
   display: flex;
   flex-direction: column;
-  height: 100vh; 
-  max-width: 600px;
+  height: 100vh; /* Ajusta la altura del contenedor */
+  max-width: 500px; /* Ajusta el ancho máximo del contenedor */
   margin: 0 auto;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Encabezado del chatbot */
+.chatbot-header {
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* Contenedor de los mensajes */
 .messages-container {
   flex: 1;
-  padding: 10px;
+  padding: 1rem;
   overflow-y: auto;
   background-color: #f3f3f3; 
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
+}
+
+/* Contenedor de los mensajes del usuario y del bot */
+.message {
+  display: flex;
+  align-items: center;
+  margin: 10px 0; /* Ajusta el margen entre los mensajes */
+  max-width: 100%; /* Asegúrate de que los mensajes no excedan el ancho del contenedor */
 }
 
 /* Mensajes del usuario */
 .user-message {
-  align-self: flex-end; 
-  max-width: 70%; 
+  justify-content: flex-end;
+  text-align: right;
+  display: flex; /* Asegura que el contenido se alinee correctamente */
+  align-items: center; /* Alinea verticalmente el contenido */
+}
+
+.user-message .message-content {
   background-color: #007bff; 
   color: #fff; 
   padding: 10px;
-  margin: 5px 10px;
-  border-radius: 10px;
-  word-wrap: break-word; 
+  border-radius: 15px;
+  max-width: 80%; /* Ajusta el ancho máximo del mensaje del usuario */
+  word-wrap: break-word;
+}
+
+/* Imagen del usuario alineada a la derecha */
+.user-message::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 40px; 
+  background-size: cover;
+  background-position: right center;
+  border-radius: 50%;
+  margin-right: 10px; /* Ajusta el margen a la izquierda para separar la imagen del mensaje */
+  vertical-align: middle; /* Alineación vertical */
 }
 
 /* Mensajes del bot */
 .bot-message {
-  align-self: flex-start; 
-  max-width: 70%; 
-  background-color: #f8f9fa; 
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.bot-message .message-content {
+  background-color: #fff; 
   color: #000; 
   padding: 10px;
-  margin: 5px 10px;
-  border-radius: 10px;
-  word-wrap: break-word; 
+  border-radius: 15px;
+  max-width: 80%; /* Ajusta el ancho máximo del mensaje del bot */
+  word-wrap: break-word;
+}
+
+/* Imagen del bot alineada a la izquierda */
+.bot-message::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url('/imagenes/apoyo.png');
+  background-size: cover;
+  border-radius: 50%;
+  margin-right: 10px; /* Ajustado a la derecha para estar junto al mensaje */
+  vertical-align: middle; /* Alineación vertical */
 }
 
 /* Contenedor de la entrada de texto */
@@ -77,16 +170,4 @@
 /* Estilo al pasar el ratón sobre el botón */
 .input-container button:hover {
   background-color: #0056b3; 
-}
-
-/* Encabezado del chatbot */
-.chatbot-header {
-  padding-top: 10%;
-  background-color: #007bff; 
-  color: #fff; 
-  padding: 10px;
-  text-align: center;
-  font-size: 18px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
 }
